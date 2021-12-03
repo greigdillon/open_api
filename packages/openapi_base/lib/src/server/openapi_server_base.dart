@@ -1,5 +1,7 @@
+import 'dart:io';
+
 abstract class OpenApiServerBase {
-  Future<StoppableProcessBase> startServer({
+  Future<HttpServer> startServer({
     String address = 'localhost',
     int port = 8080,
   });

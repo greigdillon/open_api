@@ -37,18 +37,14 @@ class OpenApiShelfServer extends OpenApiServerBase {
   }
 
   @override
-  Future<StoppableProcess> startServer({
+  Future<HttpServer> startServer({
     String address = 'localhost',
     int port = 8080,
   }) async {
     final server = await io.serve(preparePipeline(), address, port);
     _logger
         .info('Serving at http${''}://${server.address.host}:${server.port}');
-    return StoppableProcess((reason) async {
-      _logger.info('Stopping server... ($reason)');
-      await server.close();
-      _logger.info('Successfully stopped server.');
-    });
+    return server;
   }
 
   static shelf.Middleware _handleExceptions() {
