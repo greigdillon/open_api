@@ -7,7 +7,7 @@ abstract class OpenApiServerBase {
   });
 }
 
-abstract class StoppableProcessBase {
-  Future<int> get exitCode;
-  Future stop(int exitCode, {String? reason});
-}
+// abstract class StoppableProcessBase {
+//   Future<int> get exitCode;
+//   Future stop(int exitCode, {String? reason});
+// }
